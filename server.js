@@ -1,33 +1,30 @@
 
-const http = require('http')
+const express = require ('express') // les autre retoune object mais expres retour function
 
 
+const app = express()
 
-const server = http.createServer((req, res) =>{
+// express buid on midlewares(ensemble de functions to run)
+
+//if request from client
+
+app.use((req,res,next)=>{
+
+    console.log('welcome from home')
+
     
-    res.write(req.url)
 
-    if(req.url=='/home'){
-        res.statusCode==200
-        res.write('welcome from home')
-    }else if(req.url=='/contact'){
-        res.statusCode==200
-        res.write('welcome from contact')
-    }else if(req.url=='/about'){
-        res.statusCode==200
-        res.write('welcome from about')
-    }else{
-        res.statusCode==404
-        res.write('not found')
-    }
 
-        
-
-    res.end()
-
-} ) 
-
-server.listen(5000, ()=>{
-  console.log("server runing")  
 })
 
+
+
+//app.use(f1,f2,f3,f4)
+
+
+
+
+app.listen(3000, ()=>console.log('server run on port 300'))
+
+///////////course 10
+ 
